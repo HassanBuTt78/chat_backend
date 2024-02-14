@@ -18,6 +18,4 @@ app.use(errorHandler);
 io.use(userAuthSocket);
 io.on("connection", socketListener);
 
-module.exports = {
-    server,
-};
+module.exports = server;

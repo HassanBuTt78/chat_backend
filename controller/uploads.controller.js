@@ -1,4 +1,3 @@
-const CustomError = require("../utils/custom-error");
 const uploadActions = require("../database/upload-actions.js");
 
 const uploadsController = {

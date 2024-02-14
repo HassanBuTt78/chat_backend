@@ -2,7 +2,7 @@ const userActions = require("../database/user-actions.js");
 const errorHandler = require("../utils/socketErrorHandler.js");
 
 const disconnectHandler = (socket) => {
-    return async (msg) => {
+    return async () => {
         try {
             await userActions.updateUser(
                 { _id: socket.userData._id },
