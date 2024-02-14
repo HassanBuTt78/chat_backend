@@ -8,8 +8,11 @@ const addMessage = async (doc) => {
     return createdMessage;
 };
 
-const getMessages = async (receiverId, senderId) => {
-    const messages = await Message.find({
+const getMessages = async (receiverId, senderId, params) => {
+    const page = parseInt(params.page) || 1;
+    const limit = parseInt(params.limit) || 50;
+
+    const filter = {
         $or: [
             {
                 to: receiverId,
@@ -20,10 +23,20 @@ const getMessages = async (receiverId, senderId) => {
                 to: senderId,
             },
         ],
-    })
+    };
+    const offset = (page - 1) * limit;
+    const messageCount = await Message.countDocuments(filter);
+    const messages = await Message.find(filter)
         .sort("-_id")
+        .skip(offset)
+        .limit(limit)
         .populate([{ path: "file" }]);
-    return messages;
+    return {
+        messageCount: messageCount,
+        page: page,
+        limit: limit,
+        messages: messages,
+    };
 };
 
 module.exports = {

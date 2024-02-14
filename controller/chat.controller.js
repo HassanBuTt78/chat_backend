@@ -11,7 +11,11 @@ const chatController = {
         }
         const receiverId = receiverData._id;
         const senderId = req.userData._id;
-        const messages = await chatActions.getMessages(receiverId, senderId);
+        const messages = await chatActions.getMessages(
+            receiverId,
+            senderId,
+            req.query
+        );
         res.json({
             success: true,
             message: "messages retrieved successfully",
