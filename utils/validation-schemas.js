@@ -11,5 +11,4 @@ const validationSchemas = {
         password: joi.string().min(8).max(30).required(),
     }),
 };
-
 module.exports = validationSchemas;

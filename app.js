@@ -19,6 +19,5 @@ io.use(userAuthSocket);
 io.on("connection", socketListener);
 
 module.exports = {
-    app,
     server,
 };
