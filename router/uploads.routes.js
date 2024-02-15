@@ -6,7 +6,7 @@ const upload = require("../middleware/file-upload.js");
 
 router.post(
     "/",
-    [userAuthorize, upload.single("file")],
+    [userAuthorize, upload.array("file")],
     uploadsController.uploadFile
 );
 router.get("/:filename", uploadsController.getUpload);
