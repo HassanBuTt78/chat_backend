@@ -4,6 +4,7 @@
   "description": "",
   "main": "server",
   "scripts": {
+    "start": "node server",
     "dev": "nodemon server",
     "lint": "eslint ."
   },
