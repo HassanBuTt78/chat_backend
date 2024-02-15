@@ -1,7 +1,3 @@
-Certainly! Here is a more structured documentation in markdown format:
-
-# Chat Application HTTP JSON API Documentation
-
 ## Base URL
 All routes start with `/api/v1`.
 
